@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#f5f3ed">
+  <title>Markdown Signal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="phone-shell">
+    <header class="app-header">
+      <div class="brand-mark" aria-hidden="true">MS</div>
+      <div>
+        <p class="eyebrow">Fresh food operations</p>
+        <h1>Markdown Signal</h1>
+      </div>
+      <div class="status-dot" title="Prototype data is live"></div>
+    </header>
+
+    <section id="staff-view" class="view active" aria-labelledby="staff-heading">
+      <div class="view-heading">
+        <div>
+          <p class="eyebrow">Monday, 14 October</p>
+          <h2 id="staff-heading">Today's checks</h2>
+        </div>
+        <span id="open-count" class="count-pill">4 open</span>
+      </div>
+      <p class="intro-copy">A short list of produce that needs a quick markdown check today.</p>
+
+      <div class="signal-banner">
+        <span class="signal-icon" aria-hidden="true">!</span>
+        <div><strong>Start with the top signal</strong><span>Ranked by freshness urgency</span></div>
+      </div>
+
+      <div id="worklist" class="worklist" aria-live="polite"></div>
+      <div id="empty-state" class="empty-state hidden">
+        <span class="empty-icon" aria-hidden="true">OK</span>
+        <h3>All checks complete</h3>
+        <p>Every flagged item has been checked for today.</p>
+        <button class="text-button" data-action="reset">Reset prototype list</button>
+      </div>
+    </section>
+
+    <section id="staff-detail" class="view" aria-labelledby="detail-heading">
+      <button class="back-button" data-action="back-to-staff">Back to worklist</button>
+      <div id="detail-content"></div>
+    </section>
+
+    <section id="customer-view" class="view" aria-labelledby="customer-heading">
+      <div class="customer-topline"><span class="live-dot"></span> Shopper preview <span class="mock-label">Wizard of Oz</span></div>
+      <div class="view-heading customer-heading">
+        <div>
+          <p class="eyebrow">Nearby notification</p>
+          <h2 id="customer-heading">A better price is nearby</h2>
+        </div>
+      </div>
+      <p class="intro-copy">A manually triggered notification for testing the customer moment.</p>
+
+      <button class="notification-card" data-action="show-price" aria-label="Open discount details for strawberries">
+        <div class="notification-app"><span class="mini-mark">MS</span><span>MARKDOWN SIGNAL <time>now</time></span></div>
+        <strong>Flash Discount nearby</strong>
+        <span class="notification-detail">Strawberries are now <b>$2.49</b></span>
+        <span class="item-location"><span aria-hidden="true">⌖</span> Find it at <b>Produce / Shelf 04</b></span>
+        <span class="tap-hint">Tap to see why this price <span aria-hidden="true">&rarr;</span></span>
+      </button>
+
+      <div class="customer-note"><span aria-hidden="true">i</span><p>This screen is a research mockup. Location is triggered manually during the test.</p></div>
+    </section>
+
+    <section id="price-view" class="view" aria-labelledby="price-heading">
+      <button class="back-button" data-action="back-to-customer">Back to notification</button>
+      <div class="price-hero">
+        <span class="freshness-badge">Still fresh</span>
+        <p class="eyebrow">Strawberries</p>
+        <h2 id="price-heading">Why this price?</h2>
+        <div class="price-lockup"><span>$2.49</span><del>$4.99</del></div>
+        <span class="discount-tag">50% markdown</span>
+        <div class="price-location"><span aria-hidden="true">⌖</span><div><span>Find it at</span><strong>Produce / Shelf 04</strong></div></div>
+      </div>
+      <div class="reason-panel">
+        <div class="reason-icon" aria-hidden="true">~</div>
+        <div><h3>Best before tomorrow</h3><p>These strawberries are still fresh to eat. They have been reduced to help them find a home before they expire.</p></div>
+      </div>
+      <div class="freshness-row"><span class="freshness-check" aria-hidden="true">+</span><div><strong>Freshness check passed</strong><span>Checked today &middot; Eat by tomorrow</span></div></div>
+      <button class="primary-button" data-action="back-to-customer">Done</button>
+    </section>
+
+    <nav class="bottom-nav" aria-label="Main navigation">
+      <button class="nav-item active" data-view="staff-view"><span class="nav-icon" aria-hidden="true">01</span><span>Staff checks</span></button>
+      <button class="nav-item" data-view="customer-view"><span class="nav-icon" aria-hidden="true">02</span><span>Customer preview</span></button>
+    </nav>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
